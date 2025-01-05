@@ -1,3 +1,4 @@
+import webbrowser
 import dash
 from dash import html, dcc, Input, Output, State
 
@@ -178,6 +179,10 @@ def handle_flow(continue_clicks, img1_clicks, img2_clicks, state):
 
     return dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update
 
-
-if __name__ == "__main__":
-    app.run_server(debug=True)
+# Función para abrir el navegador automáticamente
+def open_browser():
+    webbrowser.open_new("http://127.0.0.1:8050/")
+server = app.server
+# Ejecutar la aplicación
+if __name__ == '__main__':
+    app.run_server(debug=False, host='0.0.0.0', port=8080)
